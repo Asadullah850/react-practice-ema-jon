@@ -3,8 +3,8 @@ import logo from "../../images/Logo.svg"
 
 const Header = () => {
     return (
-        <div className=' bg-[#1C2B35] text-white'>
-            <div className=" flex flex-row justify-around w-[1280px] px-10 py-4">
+        <div className=' bg-[#1C2B35] text-white w-screen'>
+            <div className=" flex flex-row justify-around px-10 py-4">
                 <div className="">
                     <a><img src={logo} alt="" srcset="" /></a>
                 </div>
