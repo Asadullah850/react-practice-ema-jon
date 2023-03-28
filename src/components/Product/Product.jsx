@@ -15,6 +15,7 @@ const Product = (props) => {
                     <h2 className="text-lg font-semibold ">{name}</h2>
                     <p className="text-lg font-semibold my-1">Price: ${price}</p>
                     <p className="text-sm">Manufacturer: {seller}</p>
+                    <p className="text-sm mt-1">Ratings: {ratings}</p>
                 </div>
                 <button onClick={()=>handleAddToCart( props.product)} className="btn btn-primary w-full mt-10">
                     Buy Now 
