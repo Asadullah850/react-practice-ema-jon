@@ -1,11 +1,7 @@
 import React from 'react';
-
 const Product = (props) => {
-
-    // console.log(props);
     const {img,name, price,  ratings, seller} = props.product;
-    const handleAddToCart =props.handleAddToCart
-  
+    const handleAddToCart =props.handleAddToCart;
     return (
         <div>
             {/* card */}

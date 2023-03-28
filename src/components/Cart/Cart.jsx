@@ -1,22 +1,24 @@
 import React from 'react';
 
 const Cart = ({cart}) => {
+    console.log(cart);
     let defaultPrice = 0;
     let totalShipping = 0;
+    let quantity = 0;
     for (const product of cart) {
-        defaultPrice = defaultPrice + product.price;
+        // product,quantity = product.quantity || 1;
+        defaultPrice = defaultPrice + product.price * product.quantity;
         totalShipping = totalShipping + product.shipping;
+        quantity = quantity + product.quantity;
     };
     let totalText = (defaultPrice * (7/100)).toFixed(2);
     let grandTotal = defaultPrice + totalShipping + totalText;
-
-
 
     return (
         <div>
             <h1 className="text-center text-lg font-semibold">Order Summary</h1>
             <hr className="my-4 border-4 border-stone-700" />
-            <p className='font-semibold text-start my-4 px-4'>Selected Items: {cart.length}</p>
+            <p className='font-semibold text-start my-4 px-4'>Selected Items: {quantity}</p>
             <p className='font-semibold text-start px-4'>Total Price:$ {defaultPrice}</p>
             <p className='font-semibold text-start my-4 px-4'>Total Shipping Charge:$ <span>{totalShipping}</span></p>
             <p className='font-semibold text-start px-4'>Tax: $ <span>{totalText}</span></p>
