@@ -53,7 +53,7 @@ const Shope = () => {
                     }
                 </div>
             </div>
-            <div className="card-container bg-[#FF99004D] text-center">
+            <div className="card-container bg-[#ff99004d] text-center">
                 <Cart cart={cart}></Cart>
             </div>
         </div>
