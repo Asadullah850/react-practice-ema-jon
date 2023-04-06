@@ -11,9 +11,9 @@ const ReviewItem = ({products, removeCart}) => {
             <div className="ml-2">
                 <p className=' font-semibold'>{name}</p>
                 <div className=" flex gap-4">
-                    <p>Price: {price}</p>
-                    <p>Shipping: {shipping}</p>
-                    <p>Quantity {quantity}</p>
+                    <p>Price:$ <span className=' text-orange-400 font-semibold'>{price}</span></p>
+                    <p>Shipping: <span className=' text-orange-400 font-semibold'>{shipping}</span></p>
+                    <p>Quantity <span className=' text-orange-400 font-semibold'>{quantity}</span></p>
                 </div>
             </div>
             <div onClick={()=>removeCart(id)} className=" bg-[#e6b7b7] ml-auto p-1 rounded-full cursor-pointer">

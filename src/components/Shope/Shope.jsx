@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { addToDb, getShoppingCart } from '../../utilities/fakedb';
+import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
+import { Link } from 'react-router-dom';
 
 const Shope = () => {
     const [product, setProduct] = useState([])
@@ -44,6 +45,10 @@ const Shope = () => {
         setCart(newCart);
         addToDb(product.id);
     }
+    const clearCart = ()=>{
+        setCart([]);
+        deleteShoppingCart();
+    }
     return (
         <div className=" grid grid-cols-1 md:grid-cols-4 grid-flow-row auto-rows-max ">
             <div className="product-container col-span-3 my-4 ">
@@ -54,7 +59,16 @@ const Shope = () => {
                 </div>
             </div>
             <div className="card-container bg-[#ff99004d] text-center">
-                <Cart cart={cart}></Cart>
+                <Cart clearCart={clearCart} cart={cart}>
+                    <><Link to= '/orders'>
+                    <button className="my-2 btn bg-[#FF9900]">Review Order
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}   
+                            stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                        </svg>
+                    </button>
+                </Link></>
+                </Cart>
             </div>
         </div>
     );
