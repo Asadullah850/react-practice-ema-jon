@@ -10,9 +10,12 @@ import Shope from './components/Shope/Shope';
 import Layout from './components/Layout';
 import Order from './Order';
 import Inventory from './Inventory';
-import Login from './Login';
 import cartProductsLoader from './cartOriductsLoader';
 import Checkout from './Checkout';
+import LoginForm from './components/LoginForm';
+import RegistrationForm from './components/RegistrationForm';
+import AuthPrevious from './components/Previous/AuthPrevious';
+import PrivetRoute from './components/PrivetRoute';
 
   const router = createBrowserRouter([
     {
@@ -30,20 +33,26 @@ import Checkout from './Checkout';
             },
             {
                 path:'inventory',
-                element:<Inventory/>,
+                element:<PrivetRoute><Inventory/></PrivetRoute>,
+            },
+            {
+                path:'registration',
+                element:<RegistrationForm/>,
             },
             {
                 path:'checkout',
-                element:<Checkout/>,
+                element:<PrivetRoute><Checkout/></PrivetRoute>,
             },
             {
                 path:'login',
-                element:<Login/>,
+                element:<LoginForm/>,
             },
         ]
     },
   ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <RouterProvider router={router}></RouterProvider>
+    <AuthPrevious>
+        <RouterProvider router={router}></RouterProvider>
+    </AuthPrevious>
 )
